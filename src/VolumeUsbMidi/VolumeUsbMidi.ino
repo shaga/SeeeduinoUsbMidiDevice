@@ -7,85 +7,72 @@ MIDI_CREATE_INSTANCE(Adafruit_USBD_MIDI, usb_midi, MIDI);
 
 static const int kBufferSize = 8;
 
-static const int kNoteOffKey = WIO_KEY_B;
+static const int kNoteOffKey = 8;
+static const int kPitch = A7;
+static const int kNoteNum = A6;
 
-static bool is_note_cleared = false;
+static int beforeNote = -1;
 
-static uint32_t last_mills = 0;
+static uint32_t last_millis = 0;
+static bool isNoteOff = true;
 
-static int note_buffer_pos = 0;
-
-static int note_buffer[kBufferSize] = {
-  0, 0, 0, 0, 0, 0, 0, 0
-};
-
+void initPeripheral() {
+  pinMode(kNoteOffKey, INPUT_PULLUP);
+  analogReadResolution(14);
+}
 
 void initMidi() {
   MIDI.begin(MIDI_CHANNEL_OMNI);
 
 
   while( !USBDevice.mounted() ) delay(1);
-
-  is_note_cleared = digitalRead(kNoteOffKey) == LOW ? true : false;
+  isNoteOff = true;
 }
 
 
-uint8_t getNoteValue() {
-  int value = analogRead(A0);
-  value = (int)(value * 64.0 / 1023.0 + 0.5) + 32;
-  if (value > 95) value = 95;
-  return value;
+int getNoteValue() {
+  int value = analogRead(kNoteNum);
+  return (value >> 8) + 32;
+}
+
+int getPitchValue() {
+  return analogRead(kPitch) - 8192;
 }
 
 void clearNote() {
-  if (is_note_cleared) return;
-  int count = note_buffer_pos < kBufferSize ? note_buffer_pos : kBufferSize;
-
-  for (int i = 0; i < count; i++) {
-    MIDI.sendNoteOff(note_buffer[i], 0, 1);
-    delay(5);
-    note_buffer[i] = 0;
-  }
-
-  note_buffer_pos = 0;
-  is_note_cleared = true;
+  if (beforeNote < 0) return;
+//  MIDI.sendNoteOn(beforeNote, 0, 1);
+  MIDI.sendNoteOff(beforeNote, 64, 1);
+  //beforeNote = -1;
+  isNoteOff = true;
 }
 
-void addNote(uint8_t note) {
-  int pos = note_buffer_pos % kBufferSize;
-  if (note_buffer[pos] > 0) {
-    MIDI.sendNoteOff(note_buffer[pos], 0, 1);
+void sendValue(int note, int pitch) {
+  if (!isNoteOff) {
+    MIDI.sendNoteOff(beforeNote, 64, 1);
   }
-
-  MIDI.sendNoteOn(note, 64, 1);
-  note_buffer[pos] = note;
-
-  note_buffer_pos++;
-
-  if (note_buffer_pos >= kBufferSize * 2) {
-    note_buffer_pos = kBufferSize;
-  }
+  MIDI.sendPitchBend(pitch, 1);
+  //if (isNoteOff) {
+    MIDI.sendNoteOn(note, 64, 1);
+    isNoteOff = false;
+  //}
+  beforeNote = note;
+  
 }
 
 void setup() {
-  // put your setup code here, to run once:
-  pinMode(kNoteOffKey, INPUT_PULLUP);
-
+  initPeripheral();
   initMidi();
 }
 
 void loop() {
+  uint32_t c = millis();
+  if (last_millis > 0 && c - last_millis < 100) return;
+  last_millis = c;
   if (digitalRead(kNoteOffKey) == LOW) {
     clearNote();
-  } else {
-    uint32_t c = millis();
-    if (last_mills == 0 || c - last_mills > 50) {
-      last_mills = c;
-      is_note_cleared = false;
-  
-      uint8_t value = getNoteValue();
-      addNote(value);
-    }
+  } else  {
+    sendValue(getNoteValue(), getPitchValue());
   }
 
   MIDI.read();
