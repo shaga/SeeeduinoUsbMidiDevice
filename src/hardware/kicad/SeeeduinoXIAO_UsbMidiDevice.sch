@@ -1,0 +1,272 @@
+EESchema Schematic File Version 4
+EELAYER 29 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L Seeeduino:Seeeduino_XIAO U1
+U 1 1 5EDF9581
+P 2050 1250
+F 0 "U1" H 2050 1775 50  0000 C CNN
+F 1 "Seeeduino_XIAO" H 2050 1684 50  0000 C CNN
+F 2 "" H 2050 1250 50  0001 C CNN
+F 3 "" H 2050 1250 50  0001 C CNN
+	1    2050 1250
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x03 J1
+U 1 1 5EDFCD4F
+P 1200 2050
+F 0 "J1" H 1280 2092 50  0000 L CNN
+F 1 "SH_3pin" H 1280 2001 50  0000 L CNN
+F 2 "" H 1200 2050 50  0001 C CNN
+F 3 "~" H 1200 2050 50  0001 C CNN
+	1    1200 2050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x03 J2
+U 1 1 5EDFD2FC
+P 2550 2050
+F 0 "J2" H 2630 2092 50  0000 L CNN
+F 1 "SH_3pin" H 2630 2001 50  0000 L CNN
+F 2 "" H 2550 2050 50  0001 C CNN
+F 3 "~" H 2550 2050 50  0001 C CNN
+	1    2550 2050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x03 J3
+U 1 1 5EDFDB05
+P 3850 2050
+F 0 "J3" H 3930 2092 50  0000 L CNN
+F 1 "SH_3pin" H 3930 2001 50  0000 L CNN
+F 2 "" H 3850 2050 50  0001 C CNN
+F 3 "~" H 3850 2050 50  0001 C CNN
+	1    3850 2050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x03 J5
+U 1 1 5EDFDEBB
+P 1200 2900
+F 0 "J5" H 1280 2942 50  0000 L CNN
+F 1 "XH_3pin" H 1280 2851 50  0000 L CNN
+F 2 "" H 1200 2900 50  0001 C CNN
+F 3 "~" H 1200 2900 50  0001 C CNN
+	1    1200 2900
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x02 J4
+U 1 1 5EDFE527
+P 2550 2800
+F 0 "J4" H 2630 2792 50  0000 L CNN
+F 1 "SH_2pin" H 2630 2701 50  0000 L CNN
+F 2 "" H 2550 2800 50  0001 C CNN
+F 3 "~" H 2550 2800 50  0001 C CNN
+	1    2550 2800
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3.3V #PWR01
+U 1 1 5EDFE9EF
+P 2600 750
+F 0 "#PWR01" H 2600 600 50  0001 C CNN
+F 1 "+3.3V" H 2615 923 50  0000 C CNN
+F 2 "" H 2600 750 50  0001 C CNN
+F 3 "" H 2600 750 50  0001 C CNN
+	1    2600 750 
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3.3V #PWR03
+U 1 1 5EDFF558
+P 800 1850
+F 0 "#PWR03" H 800 1700 50  0001 C CNN
+F 1 "+3.3V" H 815 2023 50  0000 C CNN
+F 2 "" H 800 1850 50  0001 C CNN
+F 3 "" H 800 1850 50  0001 C CNN
+	1    800  1850
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3.3V #PWR04
+U 1 1 5EE000B8
+P 2150 1850
+F 0 "#PWR04" H 2150 1700 50  0001 C CNN
+F 1 "+3.3V" H 2165 2023 50  0000 C CNN
+F 2 "" H 2150 1850 50  0001 C CNN
+F 3 "" H 2150 1850 50  0001 C CNN
+	1    2150 1850
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3.3V #PWR05
+U 1 1 5EE0021E
+P 3450 1850
+F 0 "#PWR05" H 3450 1700 50  0001 C CNN
+F 1 "+3.3V" H 3465 2023 50  0000 C CNN
+F 2 "" H 3450 1850 50  0001 C CNN
+F 3 "" H 3450 1850 50  0001 C CNN
+	1    3450 1850
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR02
+U 1 1 5EE00447
+P 2700 1650
+F 0 "#PWR02" H 2700 1400 50  0001 C CNN
+F 1 "GND" H 2705 1477 50  0000 C CNN
+F 2 "" H 2700 1650 50  0001 C CNN
+F 3 "" H 2700 1650 50  0001 C CNN
+	1    2700 1650
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR06
+U 1 1 5EE006EB
+P 900 2250
+F 0 "#PWR06" H 900 2000 50  0001 C CNN
+F 1 "GND" H 905 2077 50  0000 C CNN
+F 2 "" H 900 2250 50  0001 C CNN
+F 3 "" H 900 2250 50  0001 C CNN
+	1    900  2250
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR07
+U 1 1 5EE00869
+P 2250 2250
+F 0 "#PWR07" H 2250 2000 50  0001 C CNN
+F 1 "GND" H 2255 2077 50  0000 C CNN
+F 2 "" H 2250 2250 50  0001 C CNN
+F 3 "" H 2250 2250 50  0001 C CNN
+	1    2250 2250
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR08
+U 1 1 5EE009F3
+P 3550 2250
+F 0 "#PWR08" H 3550 2000 50  0001 C CNN
+F 1 "GND" H 3555 2077 50  0000 C CNN
+F 2 "" H 3550 2250 50  0001 C CNN
+F 3 "" H 3550 2250 50  0001 C CNN
+	1    3550 2250
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR09
+U 1 1 5EE00B89
+P 900 3100
+F 0 "#PWR09" H 900 2850 50  0001 C CNN
+F 1 "GND" H 905 2927 50  0000 C CNN
+F 2 "" H 900 3100 50  0001 C CNN
+F 3 "" H 900 3100 50  0001 C CNN
+	1    900  3100
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR010
+U 1 1 5EE00D2B
+P 2250 3100
+F 0 "#PWR010" H 2250 2850 50  0001 C CNN
+F 1 "GND" H 2255 2927 50  0000 C CNN
+F 2 "" H 2250 3100 50  0001 C CNN
+F 3 "" H 2250 3100 50  0001 C CNN
+	1    2250 3100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2600 750  2600 1150
+Wire Wire Line
+	2600 1150 2450 1150
+Wire Wire Line
+	2450 1050 2700 1050
+Wire Wire Line
+	2700 1050 2700 1650
+Wire Wire Line
+	1000 2150 800  2150
+Wire Wire Line
+	800  2150 800  1850
+Wire Wire Line
+	1000 1950 900  1950
+Wire Wire Line
+	900  1950 900  2250
+Wire Wire Line
+	2350 1950 2250 1950
+Wire Wire Line
+	2250 1950 2250 2250
+Wire Wire Line
+	2350 2150 2150 2150
+Wire Wire Line
+	2150 2150 2150 1850
+Wire Wire Line
+	3650 1950 3550 1950
+Wire Wire Line
+	3550 1950 3550 2250
+Wire Wire Line
+	3650 2150 3450 2150
+Wire Wire Line
+	3450 2150 3450 1850
+Wire Wire Line
+	1000 2800 900  2800
+Wire Wire Line
+	900  2800 900  3100
+Wire Wire Line
+	2350 2800 2250 2800
+Wire Wire Line
+	2250 2800 2250 3100
+Text Label 550  2050 0    50   ~ 0
+Note
+Text Label 1800 2050 0    50   ~ 0
+Velocity
+Text Label 3200 2050 0    50   ~ 0
+Pitch
+Text Label 550  3000 0    50   ~ 0
+OffSwitch
+Text Label 1800 2900 0    50   ~ 0
+Continuos
+Wire Wire Line
+	550  2050 1000 2050
+Wire Wire Line
+	550  3000 1000 3000
+Wire Wire Line
+	1800 2900 2350 2900
+Wire Wire Line
+	1800 2050 2350 2050
+Wire Wire Line
+	3200 2050 3650 2050
+Text Label 1050 950  0    50   ~ 0
+Continuos
+Text Label 1050 1450 0    50   ~ 0
+Pitch
+Text Label 1050 1550 0    50   ~ 0
+Note
+Text Label 3100 1550 2    50   ~ 0
+Velocity
+Text Label 3100 1450 2    50   ~ 0
+OffSwitch
+Wire Wire Line
+	1050 950  1650 950 
+Wire Wire Line
+	1050 1450 1650 1450
+Wire Wire Line
+	1050 1550 1650 1550
+Wire Wire Line
+	2450 1550 3100 1550
+Wire Wire Line
+	2450 1450 3100 1450
+$EndSCHEMATC
